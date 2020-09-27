@@ -88,6 +88,7 @@
     }
 }
 
+/*
 - (BOOL)panel:(id)sender shouldShowFilename:(NSString *)filename {
     BOOL packageAsDir = self.options[@"packages‑as‑directories"].boolValue;
     BOOL isPackage = [[NSWorkspace sharedWorkspace] isFilePackageAtPath:filename];
@@ -114,6 +115,7 @@
         return [self isExtensionAllowed:filename];
     }
 }
+*/
 
 
 @end

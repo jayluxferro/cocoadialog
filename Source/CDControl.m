@@ -75,13 +75,14 @@
             // case they access the options themselves to add additional properties like
             // "required" or "defaultValue".
             [control debugOptions:opt];
-
+#ifndef DEBUG
             // If not in Xcode debug mode, force the --dev option to be disabled.
             if ([opt.name isEqualToStringCaseInsensitive:@"dev"]) {
-#ifndef DEBUG
+
                 opt.provided(YES).rawValue(@"NO");
-#endif
+
             }
+#endif
         };
     }
     return self;
@@ -196,7 +197,7 @@
     }
 
     // Return the exit status
-    exit(self.exitStatus);
+    exit((int) self.exitStatus);
 }
 
 @end

@@ -333,17 +333,17 @@
         // Determine the current log level. must be done immediately after options
         // have been processed so logging respects any passed values).
         CDTerminalLogLevel logLevel = CDTerminalLogLevelNone;
-        if (!_options[@"quiet"].boolValue) {
-            if (_options[@"debug"].boolValue)   logLevel |= CDTerminalLogLevelDebug;
-            if (_options[@"dev"].boolValue)     logLevel |= CDTerminalLogLevelDev;
-            if (_options[@"error"].boolValue)   logLevel |= CDTerminalLogLevelError;
-            if (_options[@"verbose"].boolValue) logLevel |= CDTerminalLogLevelVerbose;
-            if (_options[@"warning"].boolValue) logLevel |= CDTerminalLogLevelWarning;
+        if (!self->_options[@"quiet"].boolValue) {
+            if (self->_options[@"debug"].boolValue)   logLevel |= CDTerminalLogLevelDebug;
+            if (self->_options[@"dev"].boolValue)     logLevel |= CDTerminalLogLevelDev;
+            if (self->_options[@"error"].boolValue)   logLevel |= CDTerminalLogLevelError;
+            if (self->_options[@"verbose"].boolValue) logLevel |= CDTerminalLogLevelVerbose;
+            if (self->_options[@"warning"].boolValue) logLevel |= CDTerminalLogLevelWarning;
         }
         self.terminal.setLogLevel(logLevel);
 
         // Indicate that this has been processed.
-        _processedTerminalArguments = YES;
+        self->_processedTerminalArguments = YES;
 
         return self;
     };
@@ -363,7 +363,7 @@
             }
         }
 
-        _processedWithControl = YES;
+        self->_processedWithControl = YES;
 
         return self;
     };

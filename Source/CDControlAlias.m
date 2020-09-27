@@ -31,14 +31,14 @@
 
 - (CDControlAlias *(^)(CDControlAliasProcessBlock block)) process {
     return ^CDControlAlias *(CDControlAliasProcessBlock block){
-        _processBlock = [block copy];
+        self->_processBlock = [block copy];
         return self;
     };
 }
 
 - (CDControlAlias *(^)(NSString* usage)) usage {
     return ^CDControlAlias *(NSString* usage){
-        _usageDescription = usage;
+        self->_usageDescription = usage;
         return self;
     };
 }

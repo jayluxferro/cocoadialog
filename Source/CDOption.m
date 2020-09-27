@@ -238,7 +238,7 @@
         if (self.valueType == CDBoolean) {
             min = 0;
         }
-        _minimumValues = [NSNumber numberWithInteger:min];
+        self->_minimumValues = [NSNumber numberWithInteger:min];
         return self;
     };
 }
@@ -252,7 +252,7 @@
 
 - (CDOption *(^)(CDOptionProcessBlock)) process {
     return ^CDOption *(CDOptionProcessBlock block){
-        [_processBlocks addObject:[block copy]];
+        [self->_processBlocks addObject:[block copy]];
         return self;
     };
 }
@@ -280,14 +280,14 @@
 
 - (CDOption *(^)(id)) setDefaultValue {
     return ^CDOption *(id value){
-        defaultValue = [value copy];
+        self->defaultValue = [value copy];
         return self;
     };
 }
 
 - (CDOption *(^)(NSString *)) setScope {
     return ^CDOption *(NSString *scope){
-        _scope = scope;
+        self->_scope = scope;
         return self;
     };
 }
